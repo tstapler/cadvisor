@@ -17,8 +17,8 @@ package containerd
 import (
 	"testing"
 
+	"github.com/containerd/containerd/containers"
 	"github.com/containerd/typeurl"
-	"github.com/google/cadvisor/container/containerd/containers"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/stretchr/testify/assert"
 )
@@ -56,7 +56,7 @@ func TestCanHandleAndAccept(t *testing.T) {
 	testContainers["40af7cdcbe507acad47a5a62025743ad3ddc6ab93b77b21363aa1c1d641047c9"] = testContainer
 
 	f := &containerdFactory{
-		client:             mockcontainerdClient(testContainers, nil),
+		client:             mockcontainerdClient(testContainers, nil, nil, nil, nil),
 		cgroupSubsystems:   nil,
 		fsInfo:             nil,
 		machineInfoFactory: nil,
